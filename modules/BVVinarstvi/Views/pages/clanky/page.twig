@@ -1,0 +1,57 @@
+{% extends '@modules:bVVinarstvi/layouts/site-layout/site-layout.twig' %}
+
+{% block content %}
+  <div class="blog-header">
+    <h1 data-aos="fade-up" data-aos-delay="0">
+      Události, zajímavosti a novinky
+    </h1>
+  </div>
+  <div class="blog">
+    <div class="blog-content">
+      {% for post in posts %}
+        <div class="blog-post-around col-12 col-lg-6 col-md-6 col-sm-12 col-xl-6 col-xxl-6"
+          data-aos="fade-up"
+          data-aos-delay="200">
+          <a href="clanky/{{ post.slug }}">
+            <div class="blog-post">
+              <div class="blog-post-content">
+                <h3>
+                  {{ post.title }}
+                </h3>
+                <ul class="meta">
+                  <li>
+                    {{
+                      post.created_at|format_datetime(
+                        pattern = 'dd. MMMM, yyyy',
+                        locale = 'cs'
+                      )
+                    }}
+                  </li>
+                  <li>Tisková zpráva</li>
+                </ul>
+                {% if post.description %}
+                  <p>
+                    {{ post.description }}
+                  </p>
+                {% endif %}
+                <div class="arrow">
+                  <span>Celý článek</span>
+                </div>
+              </div>
+              <div class="overlay"></div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+      <!--           <div class="page-nav" data-aos="fade" data-aos-delay="200">
+                    <ul>
+                        <li class="disable left" style="background-image: url('images/icons/left-arrow.png');"></li>
+                        <a href="clanky"><li class="active">1</li></a>
+                        <a href="2-clanky"><li>2</li></a>
+                        <a href="3-clanky"><li>3</li></a>
+                        <a href="2-clanky"><li class="right" style="background-image: url('images/icons/right-arrow.png');"></li></a>
+                    </ul>
+                </div>           -->
+    </div>
+  </div>
+{% endblock %}

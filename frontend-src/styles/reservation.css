@@ -1,0 +1,292 @@
+body {
+    color: #fff !important;
+    background-color: #000 !important;
+    font-family: 'Raleway', sans-serif !important;
+}
+
+#calendar-right .load {
+    background-image: url(images/icons/right-arrow.png) !important;
+}
+
+#calendar-left .load {
+    background-image: url(images/icons/left-arrow.png) !important;
+}
+
+.calendar-change {
+    margin-left: 15px;
+}
+
+#calendar-left, #calendar-right {
+    margin-left: 15px;
+}
+
+#header h1 {
+    font-weight: 300;
+    text-transform: inherit;
+}
+
+#footer {
+    background-color: #000;
+    border-top: 1px solid #313131;
+}
+
+.blue-button.arrow {
+    background: #be9859 url(images/icons/right-arrow.png) right center no-repeat;
+    background-size: 11px;
+    background-position: 90% 50%;
+}
+
+#footer #footer-menu #nextPage, #footer #footer-menu #submitPage {
+    background: #be9859 url(images/icons/right-arrow.png) right center no-repeat;
+    background-size: 20px;
+    background-position: 90% 48%;
+    height: 37px;
+    color: #fff;
+    padding: 7px 45px 7px 25px;
+    margin-right: 1px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+}
+
+button {
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 700;
+}
+
+#footer a.footer-link {
+    color: #fff;
+}
+
+#footer a.footer-link:before, #footer a.footer-link .ie-before {
+    filter: invert(1);
+}
+
+#content #selector {
+    top: 77px;
+}
+
+#content #inner .step {
+    border-bottom: 1px solid #313131;
+}
+
+#calendar-header, #calendar-show {
+    background-color: #000;
+    width: 150px;
+}
+
+#calendar-horizontal table#calendar-header tr th {
+    border: 1px solid #313131;
+    font-weight: 600;
+    padding: 5px 15px;
+    width: 51px;
+    font-size: 13px;
+    line-height: 18px;
+    border-bottom: 0;
+    height: 44px;
+    max-height: 36px;
+    color: #be9859;
+}
+
+#calendar-horizontal table#calendar-table tr td {
+    min-width: 120px;
+    height: 53px;
+    max-height: 53px;
+    padding: 0;
+    text-align: center;
+    background-image: url(images/bg-bookeditem.png);
+}
+
+#calendar-table tr td {
+    font-size: 13px;
+    border: 1px solid #313131;
+}
+
+#calendar-horizontal table#calendar-header tr th.empty {
+    height: 22px; 
+}
+
+#calendar-horizontal table#calendar-header tr:last-child th {
+    border-bottom: 1px solid #313131;
+}
+
+#calendar-table tr:first-child td {
+    border-top: 1px solid #313131;
+}
+
+.calendar-change button {
+    background-image: none;
+    background-color: #BE9859;
+    color: #fff;
+    font-weight: 700;
+    padding: 5px 25px 5px 25px !important;
+    border-radius: 0px !important;
+}
+
+#calendar-show .appointment .content {
+    padding-left: 3px;
+    padding-right: 3px;
+    border-left: 3px solid #fff;
+    border-right: 3px solid #fff;
+    height: 100%;
+    color: #fff;
+    background: #BE9859;
+    text-align: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar-horizontal table#calendar-header tr th.empty {
+    height: 36px;
+    background: transparent;
+}
+
+#calendar-horizontal table#calendar-table tr td.time {
+    height: 36px;
+    font-size: 14px;
+    line-height: 36px;
+    color: #BE9859;
+    font-weight: 600;
+}
+
+#calendar-show .appointment {
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #fff;
+    height: 53px;
+}
+
+.load {
+    width: 35px;
+    background-size: contain;
+    background-position: center;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#calendar-left {
+    margin-left: 20px !important;
+}
+
+#calendar-horizontal #calendar-show {
+    width:792px !important;
+}
+
+#calendar-horizontal {
+    width:942px !important;
+}
+
+#footer a.footer-link {
+    display: none;
+}
+
+label {
+    color: #fff;
+} 
+
+input {
+    border: 1px solid #313131 !important;
+    background: transparent;
+    border-radius: 0px;
+    color:#fff;
+}
+
+textarea {
+    border: 1px solid #313131 !important;
+    background: transparent;
+    border-radius: 0px;
+    color:#fff;
+}
+
+input:focus-visible {
+    border: 1px solid #fff !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+#checkRegister .row {
+    margin-bottom: 15px;
+}
+
+#footer #footer-menu #prevPage, .button {
+    border-radius: 0px;
+    color:#000;
+    background: #fff;
+}
+
+.checkbox label {
+    color: #fff;
+}
+
+.login.columns .divider .text, .two.columns.with-divider .divider .text {
+    background-color: #000;
+    border: 1px solid #313131;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff6b;
+}
+
+#content button {
+    border-radius: 0px !important;
+}
+
+.login.columns .divider, .two.columns.with-divider .divider {
+        background-image: url(images/divider-bg.png);
+}
+
+.login.columns .column.right, .two.columns.with-divider .column.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login.columns .column.left, .two.columns.with-divider .column.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#content #inner .step #instant-login .shadow {
+    background-color: #000;
+}
+
+#content #inner .step #instant-login .shadow.with-message {
+    height: 130px;
+}
+
+#content #inner .step #instant-login .shadow {
+    background-color: #000;
+    border: 1px solid #3a3a3a !important;
+}
+
+#content #inner .step #instant-login {
+    top: 48px;
+    padding: 10px;
+}
+
+#content #inner .step #instant-login .shadow {
+    -webkit-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
+.right-menu .service.selected, .right-menu .item.selected, .right-menu .segment.selected, .right-menu .merchant.selected {
+    background-color: #be9859;
+}
+.right-menu .service:hover, .right-menu .item:hover, .right-menu .segment:hover, .right-menu .merchant:hover {
+    background-color: #be9859;
+}
+.custom-values-form i.description {
+    color: #bbbb;
+}
+/* MOBILE */
+@media (max-width:480px) {
+#calendar-horizontal {
+    width: 312px !important;
+}
+}

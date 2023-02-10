@@ -1,0 +1,25 @@
+{% set hideFooter = true %}
+{% set darkMode = true %}
+{% extends '@modules:bVVinarstvi/layouts/site-layout/site-layout.twig' %}
+
+{% block content %}
+  <div class="popup-bg toggled">
+    <div class="popup" data-aos="fade-up" style="opacity:1">
+      <div class="close"></div>
+      <h1>
+        Vyberte si z našich prodejních míst
+      </h1>
+      <p>
+        Naše B\V vína lze zakoupit již na 154 místech po celé České Republice.
+        Děkujeme.
+      </p>
+      <a target="_blank" href="https://www.bvshop.cz/" class="btn">
+        Nakupovat on-line
+      </a>
+    </div>
+  </div>
+  <iframe class="map"
+    src="https://www.google.com/maps/d/embed?mid=1nZiPVQE3olgqhRGFSEkePqwQ0CL1RAcl&hl=cs"
+    width="100%"
+    height="100%"></iframe>
+{% endblock %}

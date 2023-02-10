@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    {# Info #}
+    <title>
+      B\V vinařství a.s. - rodinné vinařství z Ratíškovic
+    </title>
+
+    {# SEO #}
+    <meta name="description" content="BVVinařství" />
+
+    {# Assets #}
+    {{
+      getViteAssets({
+        distFolderPath: 'dist',
+        assets: [
+          {
+            path: '/index.ts',
+            type: 'script'
+          }
+        ]
+      })|raw
+    }}
+
+    {# Fonts #}
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Merriweather:900,700,400,300&display=swap" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <script type="text/javascript">
+      var cpm = {}; (function(h, u, b) { var d =
+      h.getElementsByTagName("script")[0], e = h.createElement("script");
+      e.async = true; e.src = 'https://cookiehub.net/c2/4656845c.js'; e.onload =
+      function() { u.cookiehub.load(b); }; d.parentNode.insertBefore(e, d);
+      })(document, window, cpm);
+    </script>
+  </head>
+  <body>
+    {% include '@modules:bVVinarstvi/layouts/site-layout/header.twig' with {
+      darkMode: darkMode|default(false)
+    } %}
+    <main>
+      {{ block('content') }}
+    </main>
+    {% if (hideFooter|default(false)) == false %}
+      {% include '@modules:bVVinarstvi/layouts/site-layout/footer.twig' %}
+    {% endif %}
+
+    {# scripts #}
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js'></script>
+
+    <script src="/scripts.js"></script>
+    <script src="/other-stuff.js"></script>
+    <script src="/typography.js"></script>
+
+  </body>
+</html>

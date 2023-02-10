@@ -1,0 +1,214 @@
+{
+  "project": {
+    "name": "BVVinařství",
+    "slug": "bvvinarstvi",
+    "url": "https://bvvinarstvi.cz"
+  },
+  "database": {
+    "models": {
+      "posts": {
+        "timestamp": true,
+        "icon": "Archive",
+        "sorting": true,
+        "draftable": true,
+        "preset": "post",
+        "columns": {
+          "photo": {
+            "type": "file",
+            "title": "Fotografie",
+            "typeFilter": "image",
+            "translations": false,
+            "admin": {
+              "isHidden": true,
+              "editor": {
+                "placement": "aside"
+              }
+            }
+          },
+          "description": {
+            "type": "longText",
+            "title": "Popisek",
+            "admin": {
+              "editor": {
+                "placement": "aside"
+              }
+            }
+          }
+        }
+      },
+      "contactPeople": {
+        "icon": "Users",
+        "sharable": false,
+        "sorting": true,
+        "columns": {
+          "name": {
+            "type": "string",
+            "title": "Jméno",
+            "translations": false
+          },
+          "photo": {
+            "type": "file",
+            "title": "Fotografie",
+            "typeFilter": "image",
+            "translations": false,
+            "admin": {
+              "isHidden": true
+            }
+          },
+          "position": {
+            "type": "json",
+            "title": "Pozice",
+            "admin": {
+              "fieldType": "repeater",
+              "columns": {
+                "row": {
+                  "title": "Řádek",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "telephone": {
+            "type": "string",
+            "title": "Telefonní číslo",
+            "translations": false,
+            "required": false
+          },
+          "email": {
+            "type": "string",
+            "title": "Email",
+            "translations": false,
+            "required": false
+          }
+        }
+      },
+      "contactInformations": {
+        "icon": "PhoneIncoming",
+        "columns": {
+          "name": {
+            "type": "string",
+            "title": "Jméno"
+          },
+          "openingHours": {
+            "type": "json",
+            "translations": false,
+            "title": "Otevírací doba",
+            "admin": {
+              "fieldType": "openingHours"
+            }
+          },
+          "addresses": {
+            "type": "json",
+            "title": "Adresy",
+            "admin": {
+              "fieldType": "repeater",
+              "columns": {
+                "row": {
+                  "title": "Řádek",
+                  "type": "string"
+                }
+              }
+            },
+            "required": false
+          },
+          "telephone": {
+            "type": "string",
+            "title": "Telefonní číslo",
+            "translations": false,
+            "required": false
+          },
+          "email": {
+            "type": "string",
+            "title": "Email",
+            "translations": false,
+            "required": false
+          },
+          "billingInformation": {
+            "type": "json",
+            "title": "Fakturační údaje",
+            "required": false,
+            "admin": {
+              "fieldType": "repeater",
+              "columns": {
+                "row": {
+                  "title": "Řádek",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "singletons": {
+      "frontPageBanner": {
+        "icon": "Award",
+        "columns": {
+          "banner": {
+            "type": "file",
+            "title": "Banner",
+            "typeFilter": "image",
+            "translations": false,
+            "admin": {
+              "isHidden": true,
+              "fieldType": "big-image"
+            }
+          },
+          "title": {
+            "title": "Úvodní obrázek",
+            "type": "string"
+          },
+          "subTitle": {
+            "title": "Podnadpis",
+            "type": "string",
+            "required": false
+          },
+          "enabled": {
+            "type": "boolean",
+            "title": "Zobrazit na stránce?",
+            "required": false,
+            "default": false,
+            "admin": {
+              "editor": {
+                "placement": "aside"
+              }
+            }
+          }
+        }
+      },
+      "pageShopAndWineShop": {
+        "icon": "ShoppingBag",
+        "preset": "post",
+        "columns": {}
+      },
+      "popup": {
+        "icon": "AlertCircle",
+        "preset": "post",
+        "columns": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Zobrazit na stránce?",
+            "required": false,
+            "default": false,
+            "admin": {
+              "editor": {
+                "placement": "aside"
+              }
+            }
+          },
+          "banner": {
+            "type": "file",
+            "title": "Obrázek",
+            "typeFilter": "image",
+            "translations": false,
+            "admin": {
+              "editor": {
+                "placement": "aside"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

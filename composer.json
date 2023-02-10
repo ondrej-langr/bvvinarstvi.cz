@@ -1,0 +1,13 @@
+{
+  "name": "prom-cms/app",
+  "type": "project",
+  "authors": [],
+  "require": {
+    "twig/intl-extra": "^3.5",
+    "prom-cms/core": "^0.5.0",
+    "rakit/validation": "^1.4"
+  },
+  "require-dev": {
+    "fakerphp/faker": "^1.9.1"
+  }
+}

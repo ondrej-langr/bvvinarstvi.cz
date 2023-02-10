@@ -1,0 +1,8 @@
+.temp
+cache
+uploads
+vendor
+.database
+node_modules
+*.env*
+_.*
