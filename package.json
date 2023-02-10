@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@prettier/plugin-php": "^0.19.3",
-    "@prom-cms/vite-plugin": "^0.4.2",
+    "@prom-cms/vite-plugin": "^0.5.0",
     "@types/aos": "^3.0.4",
     "@types/isotope-layout": "^3.0.9",
     "@types/jquery": "^3.5.16",
@@ -21,7 +21,7 @@
     "vite-plugin-live-reload": "^3.0.1"
   },
   "dependencies": {
-    "@prom-cms/cli": "^0.15.6",
+    "@prom-cms/cli": "^0.16.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "gsap": "^3.11.4",
