@@ -3,18 +3,20 @@
 {% block content %}
   {% if popup %}
     {% if popup.enabled %}
-      {{ popup|json_encode }}
       <div id="popup-mainpage-bg" class="popup-bg">
         <div id="popup-mainpage" class="popup" data-aos="fade-up">
           <div class="close"></div>
-          {# TODO #}
-          <img style="max-width:65%;margin-bottom:55px;"
-            src="images/blog/24.jpg" />
+          {% if popup.banner %}
+            {% set image = image(popup.banner, 540, null, 95) %}
+            <img style="max-width:65%;margin-bottom:55px;"
+              src="{{ image.src }}" />
+          {% endif %}
           <h1>
             {{ popup.title }}
           </h1>
           {% include '@modules:bVVinarstvi/components/BlocksRenderer.twig' with {
-            blocks: popup.content.blocks
+            blocks: popup.content.blocks,
+            disableSpecialIndenation: true
           } %}
         </div>
       </div>
@@ -125,9 +127,9 @@
           </ul>
         </div>
         <ul class="menu-language">
-          <li class="active"><a href="https://www.bvvinarstvi.cz">CZ</a></li>
-          <li><a href="https://www.bvvinarstvi.cz/en/">EN</a></li>
-          <li><a href="https://www.bvvinarstvi.cz/de/">DE</a></li>
+          <li class="active"><a href="/">CZ</a></li>
+          <li><a href="/en/">EN</a></li>
+          <li><a href="/de/">DE</a></li>
         </ul>
       </div>
     </div>
@@ -156,24 +158,27 @@
           data-aos-delay="300">
           <div class="slider-for-content">
             <h2>
-              Historie vinařství
+              {{ 'Historie vinařství'|t }}
             </h2>
             <p>
-              Vinařství bylo založeno v září roku 2012. Cílem je produkovat
+              {{
+                'Vinařství bylo založeno v září roku 2012. Cílem je produkovat
               vysoce kvalitní, jednoodrůdová, přívlastková vína z hroznů které
               zrají v našich vlastních vinicích. Všechna vyrobená vína musí
               nejdříve zachutnat nám, až poté si je dovolíme nabídnout Vám,
               váženým zákazníkům. Vlajkovou lodí vinařství je „královská“ odrůda
               Ryzlink rýnský. Velký důraz klademe také na červené odrůdy. Vína
-              jsou vysoce oceňována na domácích i mezinárodních soutěžích vín.
+              jsou vysoce oceňována na domácích i mezinárodních soutěžích vín.'|t
+              }}
             </p>
           </div>
           <div class="slider-for-content">
             <h2>
-              Vinice
+              {{ 'Vinice'|t }}
             </h2>
             <p>
-              Vinice o rozloze 63 ha, pod přímou kontrolou pěstování, se
+              {{
+                'Vinice o rozloze 63 ha, pod přímou kontrolou pěstování, se
               nacházejí ve viničních tratích Hrubé pole (vinařská obec
               Ratíškovice) a Úlehle (vinařská obec Mutěnice) ve Slovácké
               vinařské podoblasti. Půdy jsou černozemě a regozemě na jemných
@@ -183,44 +188,50 @@
               Sahary“ s malým množstvím srážek dávají v rámci slovácké vinařské
               podoblasti předpoklad dobrého vyzrávání pozdních odrůd. Na všech
               vinicích hospodaříme v režimu integrované produkce šetrné k
-              životnímu prostředí.
+              životnímu prostředí.'|t
+              }}
             </p>
           </div>
           <div class="slider-for-content">
             <h2>
-              Sklepní hospodářství
+              {{ 'Sklepní hospodářství'|t }}
             </h2>
             <p>
-              Sklepní hospodářství je situováno do historické budovy bývalé
+              {{
+                'Sklepní hospodářství je situováno do historické budovy bývalé
               zámecké sýpky v Miloticích, která pochází z počátku 18. století.
               Zde se nachází nejmodernější technologické vybavení pro zpracování
               hroznů a rmutu, následně pak samotného vína. Unikátní prostory
               samotných sklepů, které lze považovat za nejstarší vinné sklepy v
               Miloticích, postupně rekonstruujeme a připravujeme je k posezení a
-              degustacím vín.
+              degustacím vín.'|t
+              }}
             </p>
           </div>
           <div class="slider-for-content">
             <h2>
-              Odrůdy vín
+              {{ 'Odrůdy vín'|t }}
             </h2>
             <p>
-              Odrůdy pro bílá vína jsou zastoupeny Ryzlinkem rýnským,
+              {{
+                'Odrůdy pro bílá vína jsou zastoupeny Ryzlinkem rýnským,
               Hibernalem, Sylvánským zeleným a Veltlínským zeleným, z
               burgundských odrůd Rulandským šedým a Chardonnay. Z aromatických
               odrůd disponuje vinařství Tramínem červeným, Sauvignonem, Muškátem
               moravským, Solarisem a oblíbeným Müllerem-Thurgau. Pro výrobu
               červených, růžových vín a klaretů je zastoupeno vysoce jakostní
               Rulandské modré, Frankovka, Neronet, André, Svatovavřinecké a
-              Modrý Portugal.
+              Modrý Portugal.'|t
+              }}
             </p>
           </div>
           <div class="slider-for-content">
             <h2>
-              Technologie
+              {{ 'Technologie'|t }}
             </h2>
             <p>
-              Při výrobě jsou respektovány současné trendy i historické
+              {{
+                'Při výrobě jsou respektovány současné trendy i historické
               zkušenosti našich předků. Spolu s moderní vinařskou technologií a
               šetrným zpracováním hroznů je vytvářen předpoklad pro jejich
               přetvoření v jedinečné víno. Svým projevem dokonale vyjadřuje
@@ -235,7 +246,8 @@
               kalů během zrání získávají aromatičtější, plnější a komplexnější
               vína. Vína vysoké kvality jsou dále zušlechťována zráním ve
               francouzských dubových sudech, kde se obohacují o dokonalejší
-              strukturu, rovnováhu a plnější chuť.
+              strukturu, rovnováhu a plnější chuť.'|t
+              }}
             </p>
           </div>
         </div>
@@ -243,19 +255,19 @@
           data-aos="fade-up"
           data-aos-delay="600">
           <a href="#" data-slide="1" onclick="ShowImg1()">
-            <small>1</small>Historie
+            <small>1</small>{{ 'Historie'|t }}
           </a>
           <a href="#" data-slide="2" onclick="ShowImg2()">
-            <small>2</small>Vinice
+            <small>2</small>{{ 'Vinice'|t }}
           </a>
           <a href="#" data-slide="3" onclick="ShowImg3()">
-            <small>3</small>Sklepní hospodářství
+            <small>3</small>{{ 'Sklepní hospodářství'|t }}
           </a>
           <a href="#" data-slide="4" onclick="ShowImg4()">
-            <small>4</small>Odrůdy vín
+            <small>4</small>{{ 'Odrůdy vín'|t }}
           </a>
           <a href="#" data-slide="5" onclick="ShowImg5()">
-            <small>5</small>Technologie
+            <small>5</small>{{ 'Technologie'|t }}
           </a>
         </div>
       </div>
@@ -264,4 +276,11 @@
       </div>
     </div>
   </div>
+
+  {# TODO #}
+  {# <div class="banner">
+    <div class="banner-content">
+      <img src="images/banner/PF.jpg" />
+    </div>
+  </div> #}
 {% endblock %}

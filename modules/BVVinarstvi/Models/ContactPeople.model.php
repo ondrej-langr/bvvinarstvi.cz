@@ -52,7 +52,7 @@ class ContactPeople extends Model
       'editable' => true,
       'translations' => false,
       'admin' => [
-        'isHidden' => false,
+        'isHidden' => true,
         'editor' => ['placement' => 'main'],
         'fieldType' => 'normal',
       ],
@@ -114,11 +114,30 @@ class ContactPeople extends Model
       ],
       'type' => 'string',
     ],
+
+    'order' => [
+      'title' => 'Order',
+      'hide' => false,
+      'required' => false,
+      'unique' => false,
+      'editable' => false,
+      'translations' => false,
+      'admin' => ['isHidden' => true, 'editor' => ['placement' => 'main']],
+      'type' => 'number',
+      'autoIncrement' => true,
+    ],
   ];
 
   static bool $ignoreSeeding = false;
   static string $modelIcon = 'Users';
   static $adminSettings = [];
+
+  public static function afterCreate(ModelResult $entry): ModelResult
+  {
+    $entry->update(['order' => $entry->id]);
+
+    return $entry;
+  }
 
   public function getSummary()
   {
@@ -132,7 +151,7 @@ class ContactPeople extends Model
       'hasTimestamps' => $this->hasTimestamps(),
       'hasSoftDelete' => $this->hasSoftDelete(),
       'ownable' => true,
-      'hasOrdering' => false,
+      'hasOrdering' => true,
       'isDraftable' => false,
       'isSharable' => false,
     ];

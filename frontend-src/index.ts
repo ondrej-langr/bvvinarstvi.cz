@@ -1,4 +1,5 @@
 // Import styles - keep the order of import though
+import 'magnific-popup/dist/magnific-popup.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'aos/dist/aos.css'
 import 'slick-carousel/slick/slick.css'

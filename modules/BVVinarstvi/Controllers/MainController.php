@@ -28,7 +28,7 @@ class MainController
     $twig = $this->container->get(TwigViews::class);
     $popupModel = new Popup();
     $language = $this->getCurrentLanguage($request, $args);
-    $defaultLayoutData = getDefaultLayoutData($language);
+    $defaultLayoutData = getDefaultLayoutData($language, $this->container);
 
     $service = new SingletonService(
       $popupModel,
@@ -49,9 +49,17 @@ class MainController
   ) {
     $twig = $this->container->get(TwigViews::class);
     $language = $this->getCurrentLanguage($request, $args);
-    $defaultLayoutData = getDefaultLayoutData($language);
+    $defaultLayoutData = getDefaultLayoutData($language, $this->container);
 
-    return $twig->render($response, '@modules:bVVinarstvi/pages/kontakt/page.twig', array_merge($defaultLayoutData, []));
+    $contactPeopleQuery = (new ContactPeople())->query();
+
+    if ($language) {
+      $contactPeopleQuery->setLanguage($language);
+    }
+
+    return $twig->render($response, '@modules:bVVinarstvi/pages/kontakt/page.twig', array_merge($defaultLayoutData, [
+      "people" => $contactPeopleQuery->orderBy(['order' => 'asc', 'id' => 'asc'])->getMany()
+    ]));
   }
 
   function vinoteka(
@@ -61,9 +69,18 @@ class MainController
   ) {
     $twig = $this->container->get(TwigViews::class);
     $language = $this->getCurrentLanguage($request, $args);
-    $defaultLayoutData = getDefaultLayoutData($language);
+    $defaultLayoutData = getDefaultLayoutData($language, $this->container);
 
-    return $twig->render($response, '@modules:bVVinarstvi/pages/vinoteka/page.twig', array_merge($defaultLayoutData, []));
+    $service = new SingletonService(
+      new PageShopAndWineShop(),
+      $language
+    );
+
+    return $twig->render($response, '@modules:bVVinarstvi/pages/vinoteka/page.twig', array_merge($defaultLayoutData, [
+      "data" => $service
+        ->getOne([])
+        ->getData()
+    ]));
   }
 
   function szif(
@@ -73,7 +90,7 @@ class MainController
   ) {
     $twig = $this->container->get(TwigViews::class);
     $language = $this->getCurrentLanguage($request, $args);
-    $defaultLayoutData = getDefaultLayoutData($language);
+    $defaultLayoutData = getDefaultLayoutData($language, $this->container);
 
     return $twig->render($response, '@modules:bVVinarstvi/pages/szif/page.twig', array_merge($defaultLayoutData, []));
   }
@@ -85,7 +102,7 @@ class MainController
   ) {
     $twig = $this->container->get(TwigViews::class);
     $language = $this->getCurrentLanguage($request, $args);
-    $defaultLayoutData = getDefaultLayoutData($language);
+    $defaultLayoutData = getDefaultLayoutData($language, $this->container);
 
     return $twig->render($response, '@modules:bVVinarstvi/pages/prodejni-mista/page.twig', array_merge($defaultLayoutData, []));
   }

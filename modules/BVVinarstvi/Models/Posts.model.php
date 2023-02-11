@@ -72,6 +72,23 @@ class Posts extends Model
       'of' => 'title',
     ],
 
+    'photo' => [
+      'title' => 'Fotografie',
+      'hide' => false,
+      'required' => false,
+      'unique' => false,
+      'editable' => true,
+      'translations' => false,
+      'admin' => [
+        'isHidden' => true,
+        'editor' => ['placement' => 'aside'],
+        'fieldType' => 'normal',
+      ],
+      'type' => 'file',
+      'multiple' => false,
+      'typeFilter' => 'image',
+    ],
+
     'description' => [
       'title' => 'Popisek',
       'hide' => false,
@@ -79,7 +96,7 @@ class Posts extends Model
       'unique' => false,
       'editable' => true,
       'translations' => true,
-      'admin' => ['isHidden' => false, 'editor' => ['placement' => 'main']],
+      'admin' => ['isHidden' => false, 'editor' => ['placement' => 'aside']],
       'type' => 'longText',
     ],
 

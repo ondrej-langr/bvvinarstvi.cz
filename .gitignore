@@ -5,4 +5,6 @@ vendor
 .database
 node_modules
 *.env*
-_.*
+
+public/assets/
+public/manifest.json

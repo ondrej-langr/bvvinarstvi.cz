@@ -3,7 +3,7 @@
 {% block content %}
   <div class="blog-header">
     <h1 data-aos="fade-up" data-aos-delay="0">
-      Události, zajímavosti a novinky
+      {{ 'Události, zajímavosti a novinky'|t }}
     </h1>
   </div>
   <div class="blog">
@@ -14,6 +14,12 @@
           data-aos-delay="200">
           <a href="clanky/{{ post.slug }}">
             <div class="blog-post">
+              {% set thumbnail = image(post.photo, 620, null, 85) %}
+              <img src="{{ thumbnail.src }}"
+                width="{{ thumbnail.width }}"
+                height="{{ thumbnail.height }}"
+                alt="{{ block.data.label }}"
+                style="position:absolute" />
               <div class="blog-post-content">
                 <h3>
                   {{ post.title }}
@@ -23,11 +29,11 @@
                     {{
                       post.created_at|format_datetime(
                         pattern = 'dd. MMMM, yyyy',
-                        locale = 'cs'
+                        locale = __layout.lang
                       )
                     }}
                   </li>
-                  <li>Tisková zpráva</li>
+                  <li>{{ 'Tisková zpráva'|t }}</li>
                 </ul>
                 {% if post.description %}
                   <p>
@@ -35,7 +41,7 @@
                   </p>
                 {% endif %}
                 <div class="arrow">
-                  <span>Celý článek</span>
+                  <span>{{ 'Celý článek'|t }}</span>
                 </div>
               </div>
               <div class="overlay"></div>
@@ -43,7 +49,7 @@
           </a>
         </div>
       {% endfor %}
-      <!--           <div class="page-nav" data-aos="fade" data-aos-delay="200">
+      <!--                <div class="page-nav" data-aos="fade" data-aos-delay="200">
                     <ul>
                         <li class="disable left" style="background-image: url('images/icons/left-arrow.png');"></li>
                         <a href="clanky"><li class="active">1</li></a>
@@ -51,7 +57,7 @@
                         <a href="3-clanky"><li>3</li></a>
                         <a href="2-clanky"><li class="right" style="background-image: url('images/icons/right-arrow.png');"></li></a>
                     </ul>
-                </div>           -->
+                </div>                -->
     </div>
   </div>
 {% endblock %}

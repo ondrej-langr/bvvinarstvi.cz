@@ -1,5 +1,17 @@
 {% extends '@modules:bVVinarstvi/layouts/site-layout/site-layout.twig' %}
 
 {% block content %}
-  Hello from homepage 🎉
+  <div class="blog-header">
+    <h1 data-aos="fade-up" data-aos-delay="0">
+      {{ data.title }}
+    </h1>
+  </div>
+  <div class="content">
+    <div class="content-inner">
+      {% include '@modules:bVVinarstvi/components/BlocksRenderer.twig' with {
+        blocks: data.content.blocks,
+        disableSpecialIndenation: true
+      } %}
+    </div>
+  </div>
 {% endblock %}

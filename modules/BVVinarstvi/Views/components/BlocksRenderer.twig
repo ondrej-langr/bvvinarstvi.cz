@@ -5,8 +5,12 @@
             <h{{ block.data.level|default(2) }}>
               {{ block.data.text|raw }}
             </h{{ block.data.level|default(2) }}>
+          {% elseif block.type == 'quote' %}
+            <p class="quote">
+              {{ block.data.text }}
+            </p>
           {% elseif block.type == 'table' %}
-            <table class="table"> 
+            <table > 
               {% if block.data.withHeadings %}
                 <thead> 
                   <tr> 
@@ -38,96 +42,41 @@
             </table>
           {% elseif block.type == 'paragraph' %}
             <p>
-              {{ block.data.text }}
+              {% if loop.index0 == 0 and disableSpecialIndenation|default(false) == false %}
+                {% set paragraphData = block.data.text|raw|split(" ") %}
+                {% set paragraphDataFirstWord = paragraphData|first %}
+                <span class="first-letter">{{ paragraphDataFirstWord|split("")|first }}</span> 
+                {{ paragraphDataFirstWord|slice(1) }} 
+                {{ paragraphData|slice(1)|join(" ")|raw }}
+              {% else %}
+                {{ block.data.text|raw }}
+              {% endif %}
             </p>
           {% elseif block.type == 'image' %}
             {% set fullImage = image(block.data.fileId, 1240) %}
-            {% set thumbnail = image(block.data.fileId, 1240, null, 85) %}
-            <div class="big-image w-full gallery-photoswipe">
-              <a class="w-full" href="{{ fullImage.src }}" data-pswp-width="{{fullImage.width}}" data-pswp-height="{{fullImage.height}}">
-                  <img src="{{thumbnail.src}}" width="{{thumbnail.width}}" height="{{thumbnail.height}}" alt="{{ block.data.label }}" />
-                  <div class="d-none hidden-caption-content">
-                    {% if block.data.label %}
-                        <p class="heading">{{block.data.label}}</p>
-                    {% endif %}
-                    {% if block.data.description %}
-                        <p class="description">{{block.data.description}}</p>
-                    {% endif %}
-                  </div>
-              </a>
-            </div>
-          {% elseif block.type == 'big-gallery' %}
-             <div class="tabs">
-              {% for gallery in block.data %}
-                <input type="radio"
-                  name="tabs"
-                  id="tab{{ loop.index }}"
-                  checked="checked" />
-                <label for="tab{{ loop.index }}">
-                  {% if gallery.data.label %}
-                    {{ gallery.data.label }}
-                  {% else %}
-                    Žádný popisek
-                  {% endif %}
-                </label>
-                <div class="tab gallery-photoswipe portfolio-gallery">
-                  {% for file in gallery.data.fileIds %}
-                    {% set fullImage = image(file.id, 1240) %}
-                    {% set thumbnail = image(file.id, 400, null, 60) %}
-                    <a href="{{ fullImage.src }}"
-                      class="gallery-item"
-                      data-pswp-width="{{ fullImage.width }}"
-                      data-pswp-height="{{ fullImage.height }}">
-                      <img src="{{ thumbnail.src }}"
-                        width="{{ thumbnail.width }}"
-                        alt="{{ file.title }}" />
-                      <div class="d-none hidden-caption-content">
-                        {% if file.title %}
-                          <p class="heading">
-                            {{ file.title }}
-                          </p>
-                        {% endif %}
-                        {% if file.description %}
-                          <p class="description">
-                            {{ file.description }}
-                          </p>
-                        {% endif %}
-                      </div>
-                    </a>
-                  {% endfor %}
-                </div>
-              {% endfor %}
-            </div>
+            {% set thumbnail = image(block.data.fileId, 1240, null, 95) %}
+            <a class="popupimg"
+            href="{{ fullImage.src }}">
+              <img src="{{thumbnail.src}}" class="w-100" />
+            </a>
           {% elseif block.type == 'gallery' %}
-            <div class="gallery gallery-photoswipe">
+            <div data-aos="fade-up" data-aos-delay="0" id="container" class="isotope">
               {% for file in block.data.fileIds %}
                 {% set fullImage = image(file.id, 1240) %}
-                {% set thumbnail = image(file.id, 400, null, 60) %}
-                <a href="{{ fullImage.src }}"
-                  data-pswp-width="{{ fullImage.width }}"
-                  data-pswp-height="{{ fullImage.height }}">
-                  <img src="{{ thumbnail.src }}"
-                    width="{{ thumbnail.width }}"
-                    alt="{{ file.title }}" />
-                  <div class="d-none hidden-caption-content">
-                    {% if file.title %}
-                      <p class="heading">
-                        {{ file.title }}
-                      </p>
-                    {% endif %}
-                    {% if file.description %}
-                      <p class="description">
-                        {{ file.description }}
-                      </p>
-                    {% endif %}
-                  </div>
-                </a>
+                {% set thumbnail = image(file.id, 900, null, 90) %}
+
+                <div class="col-12 col-lg-6 col-md-6 col-sm-12 col-xl-6 col-xxl-6 grid-item">
+                  <a class="popupimg"
+                    href="{{ fullImage.src }}">
+                    <img src="{{ thumbnail.src }}" width="{{thumbnail.width}}" height="{{thumbnail.height}}" />
+                  </a>
+                </div>
               {% endfor %}
             </div>
           {% elseif block.type == 'list' %}
             <ul>
               {% for listItem in block.data.items %}
-                <li>{{ listItem|raw }}</li>
+                <li><small>{{ loop.index }}</small>{{ listItem|raw }}</li>
               {% endfor %}
             </ul>
           {% elseif block.type == 'dynamicBlock' %}

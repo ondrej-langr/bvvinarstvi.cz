@@ -7,19 +7,22 @@
     <div class="popup" data-aos="fade-up" style="opacity:1">
       <div class="close"></div>
       <h1>
-        Vyberte si z našich prodejních míst
+        {{ 'Vyberte si z našich prodejních míst'|t }}
       </h1>
       <p>
-        Naše B\V vína lze zakoupit již na 154 místech po celé České Republice.
-        Děkujeme.
+        {{
+          'Naše B\V vína lze zakoupit již na 154 místech po celé České Republice. Děkujeme.'|t
+        }}
       </p>
       <a target="_blank" href="https://www.bvshop.cz/" class="btn">
-        Nakupovat on-line
+        {{ 'Nakupovat on-line'|t }}
       </a>
     </div>
   </div>
   <iframe class="map"
-    src="https://www.google.com/maps/d/embed?mid=1nZiPVQE3olgqhRGFSEkePqwQ0CL1RAcl&hl=cs"
+    src="https://www.google.com/maps/d/embed?mid=1nZiPVQE3olgqhRGFSEkePqwQ0CL1RAcl&hl={{
+    __layout.lang
+    }}"
     width="100%"
     height="100%"></iframe>
 {% endblock %}

@@ -3,49 +3,70 @@
 {% block content %}
   <div class="blog-detail">
     <div class="blog-detail-content">
-      <span class="type">Tisková zpráva</span>
+      <span class="type">{{ 'Tisková zpráva'|t }}</span>
       <h1>
-        Náš sklepmistr Jiří Toman vyhlášen nejlepším enologem prestižní výstavy
-        Bacchus Madrid 2021
+        {{ data.title }}
       </h1>
-      <span class="type">9. červen, 2021</span>
+      <span class="type">
+        {{
+          post.created_at|format_datetime(
+            pattern = 'dd. MMMM, yyyy',
+            locale = __layout.lang
+          )
+        }}
+      </span>
       <div class="paragraph">
-        <p>
-          <span class="first-letter">R</span>ádi bychom se s vámi podělili o
-          jeden z největších úspěchů v historii našeho vinařství. Je to pro nás
-          další vzácná meta a její význam je pro nás zcela mimořádný. Je to ve
-          své podstatě i důkaz toho, že když děláte vaší práci s pokorou a
-          láskou, úspěch se dříve nebo později dostaví.<br /><br />
-          Narovinu jsme to nečekali, ale o to větší radost z toho samozřejmě máme.
-          Náš sklepmistr Jiří Toman tedy vyhrál prestižní cenu za nejlepšího enologa
-          v kategorii tichých vín a to v rámci celé soutěže Bacchus Madrid 2021.
-          Tento fantastický úspěch je zadostiučiněním za jeho dlouholetou vynikající
-          práci a pocta tradiční profesi, která je tu s námi již stovky let. Rádi
-          bychom Jirkovi touto cestou veřejně pogratulovali a popřáli mnoho dalších
-          úspěchů. Velmi si vážíme jeho přístupu a svědomitosti, se kterou svojí
-          práci pro B/V vinařství již od roku 2013 vykonává.
-        </p>
+        {% include '@modules:bVVinarstvi/components/BlocksRenderer.twig' with {
+          blocks: data.content.blocks
+        } %}
       </div>
     </div>
   </div>
-  <a href="predstaveni-vin-rady-reserva">
-    <div class="post-nav">
-      <div class="post-nav-inner">
-        <img src="/images/icons/left-arrow.png" />
+  {% if prevPost %}
+    <a href="clanky/{{ prevPost.slug }}">
+      <div class="post-nav">
+        <div class="post-nav-inner">
+          <img src="/images/icons/left-arrow.png" />
+        </div>
+        <div class="post-nav-content">
+          <span>{{ 'Předchozí článek'|t }}</span>
+        </div>
       </div>
-      <div class="post-nav-content">
-        <span>Předchozí článek</span>
+    </a>
+  {% else %}
+    <a href="clanky">
+      <div class="post-nav">
+        <div class="post-nav-inner">
+          <img src="/images/icons/left-arrow.png" />
+        </div>
+        <div class="post-nav-content">
+          <span>{{ 'Zpět na výběr článku'|t }}</span>
+        </div>
       </div>
-    </div>
-  </a>
-  <a href="kvalitni-vina-potrebuji-ten-spravny-cas">
-    <div class="post-nav right">
-      <div class="post-nav-inner">
-        <img src="/images/icons/right-arrow.png" />
+    </a>
+  {% endif %}
+
+  {% if nextPost %}
+    <a href="clanky/{{ nextPost.slug }}">
+      <div class="post-nav right">
+        <div class="post-nav-inner">
+          <img src="/images/icons/right-arrow.png" />
+        </div>
+        <div class="post-nav-content">
+          <span>{{ 'Další článek'|t }}</span>
+        </div>
       </div>
-      <div class="post-nav-content">
-        <span>Další článek</span>
+    </a>
+  {% else %}
+    <a href="clanky">
+      <div class="post-nav right">
+        <div class="post-nav-inner">
+          <img src="/images/icons/right-arrow.png" />
+        </div>
+        <div class="post-nav-content">
+          <span>{{ 'Zpět na výběr článku'|t }}</span>
+        </div>
       </div>
-    </div>
-  </a>
+    </a>
+  {% endif %}
 {% endblock %}
