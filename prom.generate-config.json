@@ -138,6 +138,37 @@
             }
           }
         }
+      },
+      "itemsAbout": {
+        "icon": "Slideshow",
+        "columns": {
+          "title": {
+            "type": "string",
+            "title": "Titulek"
+          },
+          "menu-title": {
+            "type": "string",
+            "title": "Titulek v navigaci",
+            "required": false
+          },
+          "photo": {
+            "type": "file",
+            "title": "Fotografie",
+            "typeFilter": "image",
+            "translations": false,
+            "admin": {
+              "isHidden": true,
+              "fieldType": "big-image",
+              "editor": {
+                "placement": "aside"
+              }
+            }
+          },
+          "text": {
+            "type": "longText",
+            "title": "Text"
+          }
+        }
       }
     },
     "singletons": {

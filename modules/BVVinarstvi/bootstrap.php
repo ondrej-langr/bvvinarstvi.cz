@@ -103,11 +103,11 @@ return function (App $app) {
   $container = $app->getContainer();
   $utils = $container->get(Utils::class);
   $twig = $container->get(Twig::class);
-
+  $defaultLanguage = $container->get(Config::class)->i18n->default;
   $twig->addExtension(new IntlExtension());
-
   $cachedTranslations = [];
 
+  // t function for translation
   $filter = new \Twig\TwigFilter('t', function ($context, $value) use ($container, $cachedTranslations) {
     $currentLang = $context["__layout"]["lang"];
 
@@ -120,7 +120,16 @@ return function (App $app) {
     return isset($cachedTranslations[$currentLang][$value]) ? $cachedTranslations[$currentLang][$value] : $value;
   }, ['needs_context' => true]);
 
+  // Link formatter for multilang routes
+  $filterFormatLink = new \Twig\TwigFilter('frlink', function ($context, $value) use ($defaultLanguage) {
+    $currentLang = $context["__layout"]["lang"];
+
+    return ($currentLang !== $defaultLanguage ? "$currentLang/" : "") . $value;
+  }, ['needs_context' => true]);
+
   $twig->getEnvironment()->addFilter($filter);
+  $twig->getEnvironment()->addFilter($filterFormatLink);
+  $twig->getEnvironment()->getExtension(\Twig\Extension\CoreExtension::class)->setTimezone('Europe/Berlin');
 
   $utils->autoloadControllers(__DIR__);
 };

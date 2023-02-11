@@ -12,7 +12,7 @@
         <div class="blog-post-around col-12 col-lg-6 col-md-6 col-sm-12 col-xl-6 col-xxl-6"
           data-aos="fade-up"
           data-aos-delay="200">
-          <a href="clanky/{{ post.slug }}">
+          <a href="{{ ('clanky/' ~ post.slug)|frlink }}">
             <div class="blog-post">
               {% set thumbnail = image(post.photo, 620, null, 85) %}
               <img src="{{ thumbnail.src }}"
@@ -49,7 +49,7 @@
           </a>
         </div>
       {% endfor %}
-      <!--                <div class="page-nav" data-aos="fade" data-aos-delay="200">
+      <!--                  <div class="page-nav" data-aos="fade" data-aos-delay="200">
                     <ul>
                         <li class="disable left" style="background-image: url('images/icons/left-arrow.png');"></li>
                         <a href="clanky"><li class="active">1</li></a>
@@ -57,7 +57,7 @@
                         <a href="3-clanky"><li>3</li></a>
                         <a href="2-clanky"><li class="right" style="background-image: url('images/icons/right-arrow.png');"></li></a>
                     </ul>
-                </div>                -->
+                </div>                  -->
     </div>
   </div>
 {% endblock %}

@@ -35,10 +35,17 @@ class MainController
       $language
     );
 
+    $itemsAboutQuery = (new ItemsAbout())->query();
+
+    if ($language) {
+      $itemsAboutQuery->setLanguage($language);
+    }
+
     return $twig->render($response, '@modules:bVVinarstvi/pages/page.twig', array_merge($defaultLayoutData, [
       "popup" =>  $service
         ->getOne([])
-        ->getData()
+        ->getData(),
+      "sliderItems" => $itemsAboutQuery->getMany()
     ]));
   }
 

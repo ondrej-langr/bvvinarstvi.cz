@@ -127,148 +127,53 @@
           </ul>
         </div>
         <ul class="menu-language">
-          <li class="active"><a href="/">CZ</a></li>
-          <li><a href="/en/">EN</a></li>
-          <li><a href="/de/">DE</a></li>
+          <li {% if __layout.lang == "cs" %} class="active" {% endif %}><a href="/">CZ</a></li>
+          <li {% if __layout.lang == "en" %} class="active" {% endif %}><a href="/en/">EN</a></li>
+          <li {% if __layout.lang == "de" %} class="active" {% endif %}><a href="/de/">DE</a></li>
         </ul>
       </div>
     </div>
     <div class="overlay" data-aos="my-animation"></div>
     <div class="slider slider-bg">
-      <div class="slider-bg-content">
-        <img src="images/img1.jpg" />
-      </div>
-      <div class="slider-bg-content">
-        <img src="images/img2.jpg" />
-      </div>
-      <div class="slider-bg-content">
-        <img src="images/img3.jpg" />
-      </div>
-      <div class="slider-bg-content">
-        <img src="images/img4.jpg" />
-      </div>
-      <div class="slider-bg-content">
-        <img src="images/img5.jpg" />
-      </div>
+      {% for item in sliderItems %}
+        {% set fullImage = image(item.photo, 1920) %}
+        <div class="slider-bg-content">
+          <img src="{{ fullImage.src }}"
+            width="{{ fullImage.width }}"
+            height="{{ fullImage.height }}" />
+        </div>
+      {% endfor %}
     </div>
     <div class="header-content">
       <div class="main-slider">
         <div class="col-12 col-lg-8 col-md-7 col-sm-12 col-xl-8 col-xxl-8 slider slider-for"
           data-aos="fade-up"
           data-aos-delay="300">
-          <div class="slider-for-content">
-            <h2>
-              {{ 'Historie vinařství'|t }}
-            </h2>
-            <p>
-              {{
-                'Vinařství bylo založeno v září roku 2012. Cílem je produkovat
-              vysoce kvalitní, jednoodrůdová, přívlastková vína z hroznů které
-              zrají v našich vlastních vinicích. Všechna vyrobená vína musí
-              nejdříve zachutnat nám, až poté si je dovolíme nabídnout Vám,
-              váženým zákazníkům. Vlajkovou lodí vinařství je „královská“ odrůda
-              Ryzlink rýnský. Velký důraz klademe také na červené odrůdy. Vína
-              jsou vysoce oceňována na domácích i mezinárodních soutěžích vín.'|t
-              }}
-            </p>
-          </div>
-          <div class="slider-for-content">
-            <h2>
-              {{ 'Vinice'|t }}
-            </h2>
-            <p>
-              {{
-                'Vinice o rozloze 63 ha, pod přímou kontrolou pěstování, se
-              nacházejí ve viničních tratích Hrubé pole (vinařská obec
-              Ratíškovice) a Úlehle (vinařská obec Mutěnice) ve Slovácké
-              vinařské podoblasti. Půdy jsou černozemě a regozemě na jemných
-              píscích a vápnitých jílech panonského, bzeneckého a dubňanského
-              souvrství. Svou strukturou jsou vhodné k pěstování jak bílých, tak
-              modrých odrůd vinné révy a díky teplému podnebí tzv. „Moravské
-              Sahary“ s malým množstvím srážek dávají v rámci slovácké vinařské
-              podoblasti předpoklad dobrého vyzrávání pozdních odrůd. Na všech
-              vinicích hospodaříme v režimu integrované produkce šetrné k
-              životnímu prostředí.'|t
-              }}
-            </p>
-          </div>
-          <div class="slider-for-content">
-            <h2>
-              {{ 'Sklepní hospodářství'|t }}
-            </h2>
-            <p>
-              {{
-                'Sklepní hospodářství je situováno do historické budovy bývalé
-              zámecké sýpky v Miloticích, která pochází z počátku 18. století.
-              Zde se nachází nejmodernější technologické vybavení pro zpracování
-              hroznů a rmutu, následně pak samotného vína. Unikátní prostory
-              samotných sklepů, které lze považovat za nejstarší vinné sklepy v
-              Miloticích, postupně rekonstruujeme a připravujeme je k posezení a
-              degustacím vín.'|t
-              }}
-            </p>
-          </div>
-          <div class="slider-for-content">
-            <h2>
-              {{ 'Odrůdy vín'|t }}
-            </h2>
-            <p>
-              {{
-                'Odrůdy pro bílá vína jsou zastoupeny Ryzlinkem rýnským,
-              Hibernalem, Sylvánským zeleným a Veltlínským zeleným, z
-              burgundských odrůd Rulandským šedým a Chardonnay. Z aromatických
-              odrůd disponuje vinařství Tramínem červeným, Sauvignonem, Muškátem
-              moravským, Solarisem a oblíbeným Müllerem-Thurgau. Pro výrobu
-              červených, růžových vín a klaretů je zastoupeno vysoce jakostní
-              Rulandské modré, Frankovka, Neronet, André, Svatovavřinecké a
-              Modrý Portugal.'|t
-              }}
-            </p>
-          </div>
-          <div class="slider-for-content">
-            <h2>
-              {{ 'Technologie'|t }}
-            </h2>
-            <p>
-              {{
-                'Při výrobě jsou respektovány současné trendy i historické
-              zkušenosti našich předků. Spolu s moderní vinařskou technologií a
-              šetrným zpracováním hroznů je vytvářen předpoklad pro jejich
-              přetvoření v jedinečné víno. Svým projevem dokonale vyjadřuje
-              místo odkud pochází a charakter odrůdy, ze které je vyrobeno.
-              Vybrané šarže procházejí v procesu výroby kryomacerací, kdy
-              dochází k uvolnění důležitých látek, které ovlivňují budoucí
-              charakter vína a získávají tím plnost, ovocnost a svěžest. U odrůd
-              z výjimečných lokalit, kde získají originální vlastnosti –
-              terroir, zvyšuje chladná macerace mineralitu a podporuje typický
-              charakter vína z dané oblasti. Vybrané odrůdy jsou zpracovány
-              metodou Sur lie, při které se promícháváním jemných kvasničných
-              kalů během zrání získávají aromatičtější, plnější a komplexnější
-              vína. Vína vysoké kvality jsou dále zušlechťována zráním ve
-              francouzských dubových sudech, kde se obohacují o dokonalejší
-              strukturu, rovnováhu a plnější chuť.'|t
-              }}
-            </p>
-          </div>
+          {% for item in sliderItems %}
+            <div class="slider-for-content">
+              <h2>
+                {{ item.title }}
+              </h2>
+              <p>
+                {{ item.text }}
+              </p>
+            </div>
+          {% endfor %}
         </div>
         <div class="action col-12 col-lg-4 col-md-5 col-sm-12 col-xl-4 col-xxl-4"
           data-aos="fade-up"
           data-aos-delay="600">
-          <a href="#" data-slide="1" onclick="ShowImg1()">
-            <small>1</small>{{ 'Historie'|t }}
-          </a>
-          <a href="#" data-slide="2" onclick="ShowImg2()">
-            <small>2</small>{{ 'Vinice'|t }}
-          </a>
-          <a href="#" data-slide="3" onclick="ShowImg3()">
-            <small>3</small>{{ 'Sklepní hospodářství'|t }}
-          </a>
-          <a href="#" data-slide="4" onclick="ShowImg4()">
-            <small>4</small>{{ 'Odrůdy vín'|t }}
-          </a>
-          <a href="#" data-slide="5" onclick="ShowImg5()">
-            <small>5</small>{{ 'Technologie'|t }}
-          </a>
+          {% for item in sliderItems %}
+            <a href="#"
+              data-slide="{{ loop.index }}">
+              <small>{{ loop.index }}</small>
+              {% if item['menu-title'] %}
+                {{ item['menu-title'] }}
+              {% else %}
+                {{ item.title }}
+              {% endif %}
+            </a>
+          {% endfor %}
         </div>
       </div>
       <div class="col-lg-4 col-xl-4 col-xxl-4 image-around">

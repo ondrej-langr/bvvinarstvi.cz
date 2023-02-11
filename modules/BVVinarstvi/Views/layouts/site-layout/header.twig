@@ -2,25 +2,25 @@
   <ul class="menu-content">
     <li class="menu-item">
       <h2>
-        {{"O nás"|t}}
+        {{ "O nás"|t }}
       </h2>
-      <a href="/historie">{{"Historie"|t}}</a>
-      <a href="/clanky">{{"Články a tiskoviny"|t}}</a>
+      <a href="{{ "historie"|frlink }}">{{ "Historie"|t }}</a>
+      <a href="{{ "clanky"|frlink }}">{{ "Články a tiskoviny"|t }}</a>
     </li>
     <li class="menu-item">
       <h2>
-        {{"Obchod"|t}}
+        {{ "Obchod"|t }}
       </h2>
       <a target="_blank" href="https://www.bvshop.cz/">E-shop</a>
-      <a href="/vinoteka">{{"Obchod \ Vinotéka"|t}}</a>
-      <a href="/prodejni-mista">{{"Prodejní místa"|t}}</a>
+      <a href="{{ "vinoteka"|frlink }}"> {{"Obchod \ Vinotéka"|t}} </a>
+      <a href="{{ "prodejni-mista"|frlink }}"> {{"Prodejní místa"|t}} </a>
     </li>
     <li class="menu-item">
       <h2>
-        {{"Kontakt"|t}}
+        {{ "Kontakt"|t }}
       </h2>
-      <a href="/kontakt">{{"Kontakt"|t}}</a>
-      <a href="/szif">SZIF</a>
+      <a href="{{ "kontakt"|frlink }}">{{"Kontakt"|t}}</a>
+      <a href="{{ "szif"|frlink }}">SZIF</a>
       <!--  <a href="#">Obchodní podmínky</a>
                     <a href="#">GDPR</a>   -->
     </li>
@@ -29,9 +29,9 @@
 
 <nav {% if (darkMode) %} class="dark" {% endif %} >
   <div class="nav-content">
-    <a href="/"><div class="logo"></div></a>
+    <a href="{{ ""|frlink }}"><div class="logo"></div></a>
     <button class="dark-button mode">
-      {{"Světlý mód"|t}}<svg xmlns="http://www.w3.org/2000/svg"
+      {{ "Světlý mód"|t }}<svg xmlns="http://www.w3.org/2000/svg"
         x="0px"
         y="0px"
         width="22"
@@ -61,7 +61,7 @@
     </button>
 
     <button class="light-button mode" style="display:none;">
-      {{"Tmavý mód"|t}}<svg xmlns="http://www.w3.org/2000/svg"
+      {{ "Tmavý mód"|t }}<svg xmlns="http://www.w3.org/2000/svg"
         x="0px"
         y="0px"
         width="22"

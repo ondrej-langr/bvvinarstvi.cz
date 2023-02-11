@@ -23,7 +23,7 @@
     </div>
   </div>
   {% if prevPost %}
-    <a href="clanky/{{ prevPost.slug }}">
+    <a href="{{ ('clanky/' ~ nextPost.slug)|frlink }}">
       <div class="post-nav">
         <div class="post-nav-inner">
           <img src="/images/icons/left-arrow.png" />
@@ -34,7 +34,7 @@
       </div>
     </a>
   {% else %}
-    <a href="clanky">
+    <a href="{{ 'clanky'|frlink }}">
       <div class="post-nav">
         <div class="post-nav-inner">
           <img src="/images/icons/left-arrow.png" />
@@ -47,7 +47,7 @@
   {% endif %}
 
   {% if nextPost %}
-    <a href="clanky/{{ nextPost.slug }}">
+    <a href="{{ ('clanky/' ~ nextPost.slug)|frlink }}">
       <div class="post-nav right">
         <div class="post-nav-inner">
           <img src="/images/icons/right-arrow.png" />
@@ -58,7 +58,7 @@
       </div>
     </a>
   {% else %}
-    <a href="clanky">
+    <a href="{{ 'clanky'|frlink }}">
       <div class="post-nav right">
         <div class="post-nav-inner">
           <img src="/images/icons/right-arrow.png" />

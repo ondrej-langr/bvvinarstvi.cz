@@ -9,7 +9,7 @@
       <div class="col-12 col-lg-8 col-md-9 col-sm-9 col-xl-8 col-xxl-8 contact-content">
         <div class="col-12 col-lg-6 col-md-6 col-sm-12 col-xl-6 col-xxl-6 contact-box">
           <h3 data-aos="fade-up" data-aos-delay="300">
-            {{"Obchod \ Vinotéka"|t}}
+            {{ "Obchod \ Vinotéka"|t }}
           </h3>
           <ul data-aos="fade-up" data-aos-delay="600">
             {% for info in __layout.contacts.shop.openingHours %} 
@@ -17,7 +17,7 @@
               <li class="white">{{info.time}}</li>
             {% endfor %}
             <hr />
-            <li class="gold">{{"Rezervace na telefonním čísle"|t}}</li>
+            <li class="gold">{{ "Rezervace na telefonním čísle"|t }}</li>
             <li class="white">
               <a href="tel:{{ __layout.contacts.shop.telephone }}">
                 {{ __layout.contacts.shop.telephone }}
@@ -30,7 +30,7 @@
             </li>
           </ul>
           <h3 data-aos="fade-up" data-aos-delay="900">
-            {{"Sledujte nás"|t}}
+            {{ "Sledujte nás"|t }}
           </h3>
           <ul data-aos="fade-up" data-aos-delay="1200">
             <li>
@@ -136,11 +136,11 @@
         </div>
         <div class="col-12 col-lg-6 col-md-6 col-sm-12 col-xl-6 col-xxl-6 contact-box">
           <h3 data-aos="fade-up" data-aos-delay="300">
-            {{"Kontaktní údaje"|t}}
+            {{ "Kontaktní údaje"|t }}
           </h3>
           <ul data-aos="fade-up" data-aos-delay="600">
             <li>
-              {{"Provozovna"|t}} :<svg xmlns="http://www.w3.org/2000/svg"
+              {{ "Provozovna"|t }} :<svg xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
                 width="16"
@@ -169,7 +169,7 @@
               </svg> <a href="https://www.google.cz/maps/place/B%5CV+Vina%C5%99stv%C3%AD+a.s./@49.0725341,16.6418595,10z/data=!4m9!1m2!2m1!1sS%C3%BDpka+Milotice+696+05!3m5!1s0x47132586f9b51475:0xed96c3d230a4036!8m2!3d48.9662469!4d17.1407325!15sChZTw71wa2EgTWlsb3RpY2UgNjk2IDA1kgEGd2luZXJ5?hl=cs&authuser=0" target="_blank">{{ __layout.contacts.shop.addresses.data|map(p=>p.row)|join(", ") }}</a>
             </li>
             <li>
-              {{"Sídlo firmy"|t}} :<svg xmlns="http://www.w3.org/2000/svg"
+              {{ "Sídlo firmy"|t }} :<svg xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
                 width="16"
@@ -214,7 +214,7 @@
           </ul>
 
           <h3 data-aos="fade-up" data-aos-delay="900">
-            {{"Fakturační údaje"|t}}
+            {{ "Fakturační údaje"|t }}
           </h3>
           <ul data-aos="fade-up" data-aos-delay="1200">
             {% for item in __layout.contacts.center.billingInformation.data  %}
@@ -225,7 +225,7 @@
         <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xxl-12 team-content"
           data-aos="fade-up">
           <h2>
-            {{"Náš tým"|t}}
+            {{ "Náš tým"|t }}
           </h2>
           <p>
             {{"S důvěrou se můžete obrátit na kteréhokoliv člena našeho týmu, který Vám fundovaně poradí či pomůže ve svěřené oblasti."|t}}

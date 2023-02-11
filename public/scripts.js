@@ -1,22 +1,3 @@
-function ShowImg1() {
-  document.getElementById('image').src = 'images/img1.jpg'
-}
-
-function ShowImg2() {
-  document.getElementById('image').src = 'images/img2.jpg'
-}
-
-function ShowImg3() {
-  document.getElementById('image').src = 'images/img3.jpg'
-}
-
-function ShowImg4() {
-  document.getElementById('image').src = 'images/img4.jpg'
-}
-function ShowImg5() {
-  document.getElementById('image').src = 'images/img5.jpg'
-}
-
 $(document).ready(function () {
   setTimeout(function () {
     $('#popup-mainpage-bg').addClass('toggled')
@@ -39,6 +20,7 @@ $(function () {
   })
 })
 
+// TODO: This throws on client - is it really necessary?
 gsap.registerPlugin(ScrollTrigger)
 
 const pageContainer = document.querySelector('.container')

@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
+    "sync-cms": "npx @prom-cms/cli generate-cms --skip=*,!models,!admin",
     "dev": "vite"
   },
   "devDependencies": {

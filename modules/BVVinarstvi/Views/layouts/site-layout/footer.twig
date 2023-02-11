@@ -2,15 +2,15 @@
   <div class="footer-content">
     <div class="newsletter-content">
       <h3>
-        {{"Přihlašte se k odběru"|t}}
+        {{ "Přihlašte se k odběru"|t }}
       </h3>
       <form method="post"
         target="_self"
         action="https://app.smartemailing.cz/public/web-forms-v2/display-form/341664-aaytv136vh6tunf5bf49c2h28qsb1ifyvpqzoq2s4sk1nc6wz7uxq3z070096qnkhoya8r0yav4jff3ucwkjvz90ouuew08j03m3"
         id="se20-webform-341664-aaytv136vh6tunf5bf49c2h28qsb1ifyvpqzoq2s4sk1nc6wz7uxq3z070096qnkhoya8r0yav4jff3ucwkjvz90ouuew08j03m3">
         <p>
-          {{"Chcete mít přehled o nejaktuálnějším dění v B\V vinařství?"|t}}<br />
-          {{"Přihlašte se k odběru newsletterů a mějte informace z první ruky."|t}}
+          {{ "Chcete mít přehled o nejaktuálnějším dění v B\V vinařství?"|t }}<br />
+          {{ "Přihlašte se k odběru newsletterů a mějte informace z první ruky."|t }}
         </p>
         <div class="newsletter-inner">
           <input class="input"
@@ -39,7 +39,7 @@
         </div>
         <p>
           <small>
-            {{"Vložením e-mailu souhlasíte s podmínkami ochrany osobních údajů."|t}}
+            {{ "Vložením e-mailu souhlasíte s podmínkami ochrany osobních údajů."|t }}
           </small>
         </p>
       </form>
@@ -47,14 +47,14 @@
 
     <div class="col-12 col-lg-3 col-md-6 col-sm-12 col-xl-3 col-xxl-3 footer-box">
       <h3>
-        {{"Obchod \ Vinotéka"|t}}
+        {{ "Obchod \ Vinotéka"|t }}
       </h3>
       <ul>
         {% for info in __layout.contacts.shop.openingHours %} 
           <li>{{ info.from|format_datetime( pattern = 'EE', locale = __layout.lang )|capitalize }} {% if info.from != info.to %}- {{info.to|format_datetime( pattern = 'EE', locale = __layout.lang )|capitalize}}{% endif %} : {{info.time}}</li>
         {% endfor %}
         <hr />
-        <li class="gold">{{"Rezervace na telefonním čísle"|t}}</li>
+        <li class="gold">{{ "Rezervace na telefonním čísle"|t }}</li>
         <li class="white"><a href="tel:{{ __layout.contacts.shop.telephone }}">{{ __layout.contacts.shop.telephone }}</a></li>
         <li class="white">
           <a href="mailto:{{ __layout.contacts.shop.email }}">{{ __layout.contacts.shop.email }}</a>
@@ -63,12 +63,12 @@
     </div>
     <div class="col-12 col-lg-3 col-md-6 col-sm-12 col-xl-3 col-xxl-3 footer-box">
       <h4>
-        {{"Provozovna"|t}}
+        {{ "Provozovna"|t }}
       </h4>
       <ul>
-        <li>{{"Provozovna"|t}} {{ __layout.contacts.shop.addresses.data|map(p=>p.row)|join(", ") }}</li>
-        <li>{{"Sídlo"|t}} {{ __layout.contacts.center.addresses.data|map(p=>p.row)|join(", ") }}</li>
-        <li>{{"Provozní doba"|t}} :
+        <li>{{ "Provozovna"|t }} {{ __layout.contacts.shop.addresses.data|map(p=>p.row)|join(", ") }}</li>
+        <li>{{ "Sídlo"|t }} {{ __layout.contacts.center.addresses.data|map(p=>p.row)|join(", ") }}</li>
+        <li>{{ "Provozní doba"|t }} :
           {% for info in __layout.contacts.center.openingHours|filter(item => item.time != false ) %} 
             {{ info.from|format_datetime( pattern = 'EE', locale = __layout.lang )|capitalize }} {% if info.from != info.to %}- {{info.to|format_datetime( pattern = 'EE', locale = __layout.lang )|capitalize}}{% endif %} {{info.time}},
           {% endfor %}
@@ -77,7 +77,7 @@
         <li class="white">{{ __layout.contacts.center.email }}</li>
       </ul>
       <h4 style="margin-top:45px;">
-        {{"Sledujte nás"|t}}
+        {{ "Sledujte nás"|t }}
       </h4>
       <ul>
         <li>
@@ -177,25 +177,25 @@
     </div>
     <div class="col-12 col-lg-2 col-md-6 col-sm-12 col-xl-2 col-xxl-2 footer-box">
       <h4>
-        {{"Navigace"|t}}
+        {{ "Navigace"|t }}
       </h4>
       <ul>
-        <li><a href="historie">{{"O nás"|t}}</a></li>
+        <li><a href="{{ "historie"|frlink }}">{{ "O nás"|t }}</a></li>
         <li><a target="_blank" href="https://www.bvshop.cz/">E-shop</a></li>
-        <li><a href="vinoteka">{{"Obchod \ Vinotéka"|t}}</a></li>
-        <li><a href="prodejni-mista">{{"Prodejní místa"|t}}</a></li>
-        <li><a href="clanky">{{"Články"|t}}</a></li>
-        <li><a href="kontakt">{{"Kontakt"|t}}</a></li>
+        <li><a href="{{ "vinoteka"|frlink }}">{{ "Obchod \ Vinotéka"|t }}</a></li>
+        <li><a href="{{ "prodejni-mista"|frlink }}">{{ "Prodejní místa"|t }}</a></li>
+        <li><a href="{{ "clanky"|frlink }}">{{ "Články"|t }}</a></li>
+        <li><a href="{{ "kontakt"|frlink }}">{{ "Kontakt"|t }}</a></li>
       </ul>
     </div>
     <div class="col-12 col-lg-4 col-md-6 col-sm-12 col-xl-4 col-xxl-4 footer-box">
       <h4>
-        {{"Články"|t}}
+        {{ "Články"|t }}
       </h4>
       <ul class="last-blog">
         {% for post in __layout.latestPosts %}
           <li>
-            <a href="clanky/{{ post.slug }}">
+            <a href="{{ ("clanky/" ~ post.slug)|frlink }}">
               <small>
                 {{
                   post.created_at|format_datetime(
