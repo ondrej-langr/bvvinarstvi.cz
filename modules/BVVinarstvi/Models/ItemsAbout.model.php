@@ -85,6 +85,9 @@ class ItemsAbout extends Model
   ];
 
   static bool $ignoreSeeding = false;
+
+  static string $title = 'O nás (body)';
+
   static string $modelIcon = 'Slideshow';
   static $adminSettings = [];
 
@@ -94,6 +97,7 @@ class ItemsAbout extends Model
       'isSingleton' => $this instanceof SingletonModel,
       'tableName' => $this->getTableName(),
       'icon' => self::$modelIcon,
+      'title' => isset(self::$title) ? self::$title : null,
       'ignoreSeeding' => self::$ignoreSeeding,
       'admin' => self::$adminSettings,
       'columns' => static::$tableColumns,

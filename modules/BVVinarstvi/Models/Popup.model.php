@@ -102,6 +102,9 @@ class Popup extends SingletonModel
   ];
 
   static bool $ignoreSeeding = false;
+
+  static string $title = 'Popup';
+
   static string $modelIcon = 'AlertCircle';
   static $adminSettings = [];
 
@@ -127,6 +130,7 @@ class Popup extends SingletonModel
       'isSingleton' => $this instanceof SingletonModel,
       'name' => $this->getName(),
       'icon' => self::$modelIcon,
+      'title' => isset(self::$title) ? self::$title : null,
       'ignoreSeeding' => self::$ignoreSeeding,
       'admin' => self::$adminSettings,
       'columns' => static::$tableColumns,

@@ -73,6 +73,9 @@ class PageShopAndWineShop extends SingletonModel
   ];
 
   static bool $ignoreSeeding = false;
+
+  static string $title = 'Obchod / Vinotéka (Stránka)';
+
   static string $modelIcon = 'ShoppingBag';
   static $adminSettings = [];
 
@@ -98,6 +101,7 @@ class PageShopAndWineShop extends SingletonModel
       'isSingleton' => $this instanceof SingletonModel,
       'name' => $this->getName(),
       'icon' => self::$modelIcon,
+      'title' => isset(self::$title) ? self::$title : null,
       'ignoreSeeding' => self::$ignoreSeeding,
       'admin' => self::$adminSettings,
       'columns' => static::$tableColumns,

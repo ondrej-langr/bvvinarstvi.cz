@@ -143,6 +143,9 @@ class ContactInformations extends Model
   ];
 
   static bool $ignoreSeeding = false;
+
+  static string $title = 'Kontaktní informace';
+
   static string $modelIcon = 'PhoneIncoming';
   static $adminSettings = [];
 
@@ -152,6 +155,7 @@ class ContactInformations extends Model
       'isSingleton' => $this instanceof SingletonModel,
       'tableName' => $this->getTableName(),
       'icon' => self::$modelIcon,
+      'title' => isset(self::$title) ? self::$title : null,
       'ignoreSeeding' => self::$ignoreSeeding,
       'admin' => self::$adminSettings,
       'columns' => static::$tableColumns,

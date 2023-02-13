@@ -11,6 +11,10 @@ class FrontPageBanner extends SingletonModel
   protected bool $timestamps = false;
   protected bool $translations = true;
 
+  public static array $casts = [
+    'content' => 'array',
+  ];
+
   public static array $tableColumns = [
     'id' => [
       'title' => 'ID',
@@ -24,25 +28,8 @@ class FrontPageBanner extends SingletonModel
       'autoIncrement' => true,
     ],
 
-    'banner' => [
-      'title' => 'Banner',
-      'hide' => false,
-      'required' => false,
-      'unique' => false,
-      'editable' => true,
-      'translations' => false,
-      'admin' => [
-        'isHidden' => true,
-        'editor' => ['placement' => 'main'],
-        'fieldType' => 'big-image',
-      ],
-      'type' => 'file',
-      'multiple' => false,
-      'typeFilter' => 'image',
-    ],
-
-    'title' => [
-      'title' => 'Úvodní obrázek',
+    'content' => [
+      'title' => 'Obsah',
       'hide' => false,
       'required' => false,
       'unique' => false,
@@ -51,24 +38,9 @@ class FrontPageBanner extends SingletonModel
       'admin' => [
         'isHidden' => false,
         'editor' => ['placement' => 'main'],
-        'fieldType' => 'normal',
+        'fieldType' => 'blockEditor',
       ],
-      'type' => 'string',
-    ],
-
-    'subTitle' => [
-      'title' => 'Podnadpis',
-      'hide' => false,
-      'required' => false,
-      'unique' => false,
-      'editable' => true,
-      'translations' => true,
-      'admin' => [
-        'isHidden' => false,
-        'editor' => ['placement' => 'main'],
-        'fieldType' => 'normal',
-      ],
-      'type' => 'string',
+      'type' => 'json',
     ],
 
     'enabled' => [
@@ -82,9 +54,29 @@ class FrontPageBanner extends SingletonModel
       'type' => 'boolean',
       'default' => false,
     ],
+
+    'image' => [
+      'title' => 'Pozadí',
+      'hide' => false,
+      'required' => false,
+      'unique' => false,
+      'editable' => true,
+      'translations' => false,
+      'admin' => [
+        'isHidden' => true,
+        'editor' => ['placement' => 'aside'],
+        'fieldType' => 'big-image',
+      ],
+      'type' => 'file',
+      'multiple' => false,
+      'typeFilter' => 'image',
+    ],
   ];
 
   static bool $ignoreSeeding = false;
+
+  static string $title = 'Banner na hlavní stránce';
+
   static string $modelIcon = 'Award';
   static $adminSettings = [];
 
@@ -94,6 +86,7 @@ class FrontPageBanner extends SingletonModel
       'isSingleton' => $this instanceof SingletonModel,
       'name' => $this->getName(),
       'icon' => self::$modelIcon,
+      'title' => isset(self::$title) ? self::$title : null,
       'ignoreSeeding' => self::$ignoreSeeding,
       'admin' => self::$adminSettings,
       'columns' => static::$tableColumns,

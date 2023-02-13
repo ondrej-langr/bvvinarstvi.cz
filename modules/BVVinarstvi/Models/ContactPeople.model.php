@@ -129,6 +129,9 @@ class ContactPeople extends Model
   ];
 
   static bool $ignoreSeeding = false;
+
+  static string $title = 'Kontaktní osoby';
+
   static string $modelIcon = 'Users';
   static $adminSettings = [];
 
@@ -145,6 +148,7 @@ class ContactPeople extends Model
       'isSingleton' => $this instanceof SingletonModel,
       'tableName' => $this->getTableName(),
       'icon' => self::$modelIcon,
+      'title' => isset(self::$title) ? self::$title : null,
       'ignoreSeeding' => self::$ignoreSeeding,
       'admin' => self::$adminSettings,
       'columns' => static::$tableColumns,

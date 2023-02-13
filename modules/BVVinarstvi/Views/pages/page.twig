@@ -182,10 +182,24 @@
     </div>
   </div>
 
-  {# TODO #}
-  {# <div class="banner">
-    <div class="banner-content">
-      <img src="images/banner/PF.jpg" />
-    </div>
-  </div> #}
+  {% if banner %}
+    {% if banner.enabled == true %}
+      <div class="banner">
+        <div class="banner-content">
+          {% if banner.image %}
+            {% set image = image(banner.image, 1980, null, 95) %}
+            <img data-aos="fade-up" data-aos-delay="550" src="{{ image.src }}" />
+          {% endif %}
+          {% if banner.content %}
+            <div style="z-index: 5;">
+              {% include '@modules:bVVinarstvi/components/BlocksRenderer.twig' with {
+                blocks: banner.content.blocks,
+                disableSpecialIndenation: true
+              } %}
+            </div>
+          {% endif %}
+        </div>
+      </div> 
+    {% endif %}
+  {% endif %}
 {% endblock %}

@@ -9,6 +9,7 @@
       "posts": {
         "timestamp": true,
         "icon": "Archive",
+        "title": "Články",
         "sorting": true,
         "draftable": true,
         "preset": "post",
@@ -40,6 +41,7 @@
         "icon": "Users",
         "sharable": false,
         "sorting": true,
+        "title": "Kontaktní osoby",
         "columns": {
           "name": {
             "type": "string",
@@ -84,6 +86,7 @@
       },
       "contactInformations": {
         "icon": "PhoneIncoming",
+        "title": "Kontaktní informace",
         "columns": {
           "name": {
             "type": "string",
@@ -141,6 +144,7 @@
       },
       "itemsAbout": {
         "icon": "Slideshow",
+        "title": "O nás (body)",
         "columns": {
           "title": {
             "type": "string",
@@ -174,25 +178,18 @@
     "singletons": {
       "frontPageBanner": {
         "icon": "Award",
+        "title": "Banner na hlavní stránce",
         "columns": {
-          "banner": {
-            "type": "file",
-            "title": "Banner",
-            "typeFilter": "image",
-            "translations": false,
+          "content": {
+            "title": "Obsah",
+            "type": "json",
+            "default": "{}",
             "admin": {
-              "isHidden": true,
-              "fieldType": "big-image"
+              "fieldType": "blockEditor",
+              "editor": {
+                "placement": "main"
+              }
             }
-          },
-          "title": {
-            "title": "Úvodní obrázek",
-            "type": "string"
-          },
-          "subTitle": {
-            "title": "Podnadpis",
-            "type": "string",
-            "required": false
           },
           "enabled": {
             "type": "boolean",
@@ -204,17 +201,32 @@
                 "placement": "aside"
               }
             }
+          },
+          "image": {
+            "type": "file",
+            "title": "Pozadí",
+            "typeFilter": "image",
+            "translations": false,
+            "admin": {
+              "isHidden": true,
+              "fieldType": "big-image",
+              "editor": {
+                "placement": "aside"
+              }
+            }
           }
         }
       },
       "pageShopAndWineShop": {
         "icon": "ShoppingBag",
         "preset": "post",
+        "title": "Obchod / Vinotéka (Stránka)",
         "columns": {}
       },
       "popup": {
         "icon": "AlertCircle",
         "preset": "post",
+        "title": "Popup",
         "columns": {
           "enabled": {
             "type": "boolean",

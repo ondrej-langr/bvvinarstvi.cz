@@ -4,7 +4,7 @@
   "description": "",
   "license": "MIT",
   "scripts": {
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "sync-cms": "npx @prom-cms/cli generate-cms --skip=*,!models,!admin",
     "dev": "vite"
   },
@@ -22,7 +22,7 @@
     "vite-plugin-live-reload": "^3.0.1"
   },
   "dependencies": {
-    "@prom-cms/cli": "^0.16.0",
+    "@prom-cms/cli": "^0.16.3",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "gsap": "^3.11.4",

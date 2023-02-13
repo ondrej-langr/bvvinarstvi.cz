@@ -35,6 +35,11 @@ class MainController
       $language
     );
 
+    $frontPageBanner = new SingletonService(
+      new FrontPageBanner,
+      $language
+    );
+
     $itemsAboutQuery = (new ItemsAbout())->query();
 
     if ($language) {
@@ -45,7 +50,9 @@ class MainController
       "popup" =>  $service
         ->getOne([])
         ->getData(),
-      "sliderItems" => $itemsAboutQuery->getMany()
+      "sliderItems" => $itemsAboutQuery->getMany(),
+      "banner" => $frontPageBanner->getOne([])
+        ->getData(),
     ]));
   }
 
