@@ -71,37 +71,27 @@ class PostsController
     try {
       $postSlug = $args["postSlug"];
       $postQuery = (new Posts())->query();
+      $postsQuery = (new Posts())->query();
 
       if ($language) {
         $postQuery->setLanguage($language);
+        $postsQuery->setLanguage($language);
       }
 
+      // We now get all posts and find index of current post within it and we can determine next and prev post
       $post = $postQuery->where($this->getMultilangField('slug', $postSlug))->getOne();
+      $posts = $postsQuery->orderBy(["created_at" => "desc"])->getMany(["is_published" => true]);
+      $currentPostIndex = array_search($post->id, array_column($posts, 'id'));
       $nextPost = null;
       $prevPost = null;
 
-      try {
-        $postQuery = (new Posts())->query();
-
-        if ($language) {
-          $postQuery->setLanguage($language);
-        }
-
-        $nextPost = $postQuery->where(["id", "=", $post->id - 1])->getOne()->getData();
-      } catch (\Exception $e) {
+      if ($currentPostIndex > 0) {
+        $prevPost = $posts[$currentPostIndex - 1];
       }
 
-      try {
-        $postQuery = (new Posts())->query();
-
-        if ($language) {
-          $postQuery->setLanguage($language);
-        }
-
-        $prevPost = $postQuery->where(["id", "=", $post->id + 1])->getOne()->getData();
-      } catch (\Exception $e) {
+      if ($currentPostIndex < (count($posts) - 1)) {
+        $nextPost = $posts[$currentPostIndex + 1];
       }
-
 
       return $twig->render($response, '@modules:bVVinarstvi/pages/clanky/[postSlug]/page.twig', array_merge($defaultLayoutData, [
         "data" => $post->getData(),
@@ -110,7 +100,7 @@ class PostsController
       ]));
     } catch (\Exception $e) {
       echo json_encode($e->__toString());
-      return $response->withStatus(200);
+      return $response->withStatus(404);
     }
   }
 }

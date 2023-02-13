@@ -9,7 +9,8 @@
         action="https://app.smartemailing.cz/public/web-forms-v2/display-form/341664-aaytv136vh6tunf5bf49c2h28qsb1ifyvpqzoq2s4sk1nc6wz7uxq3z070096qnkhoya8r0yav4jff3ucwkjvz90ouuew08j03m3"
         id="se20-webform-341664-aaytv136vh6tunf5bf49c2h28qsb1ifyvpqzoq2s4sk1nc6wz7uxq3z070096qnkhoya8r0yav4jff3ucwkjvz90ouuew08j03m3">
         <p>
-          {{ "Chcete mít přehled o nejaktuálnějším dění v B\V vinařství?"|t }}<br />
+        {# Double backslashes for database entries since normalizing makes it with double slashes even though they appear as single backslash #}
+          {{ "Chcete mít přehled o nejaktuálnějším dění v B\\V vinařství?"|t }}<br />
           {{ "Přihlašte se k odběru newsletterů a mějte informace z první ruky."|t }}
         </p>
         <div class="newsletter-inner">
@@ -23,7 +24,7 @@
           <input class="btn-input"
             type="submit"
             name="_submit"
-            value="Odebírat novinky" />
+            value="{{ 'Odebírat novinky'|t }}" />
           <input type="hidden" name="referrer" id="se-ref-field-id" value="" />
           <input type="hidden"
             name="sessionid"

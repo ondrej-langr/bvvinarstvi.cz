@@ -529,7 +529,7 @@ nav ul li a:hover {
 .header-content:after {
     content: "";
     position: absolute;
-    background-image: url('images/logo/logo_big.png');
+    background-image: url('/images/logo/logo_big.png');
     width: 350px;
     height: 350px;
     background-repeat: no-repeat;
@@ -631,7 +631,7 @@ nav ul li a:hover {
     height: 35px;
     border: 1px solid #313131;
     background-color: transparent;
-    background-image: url('images/icons/left-arrow.png');
+    background-image: url('/images/icons/left-arrow.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 15px 15px;
@@ -643,7 +643,7 @@ nav ul li a:hover {
     height: 35px;
     border: 1px solid #313131;
     background-color: transparent;
-    background-image: url('images/icons/right-arrow.png');
+    background-image: url('/images/icons/right-arrow.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 15px 15px;
@@ -1418,7 +1418,7 @@ footer ul li:hover {
 .img-side {
     position: fixed;
     min-height: 100vh;
-    background-image: url('images/img3.jpg');
+    background-image: url('/images/img3.jpg');
     opacity: 0.2;
     background-repeat: no-repeat;
     background-position: center center;
@@ -2142,14 +2142,14 @@ ul.menu-content li:hover:after {
         padding-bottom: 105px;
     }
     footer:after {
-        background-image: url(images/BV_linky.svg) !important;
+        background-image: url(/images/BV_linky.svg) !important;
     }
     .header:after {
     top: 8% !important;
     width: 75% !important;
     }
     .menu:before {
-        background-image: url(images/BV_linky.svg) !important;
+        background-image: url(/images/BV_linky.svg) !important;
     }
     .menu:after {
     top: 8% !important;
