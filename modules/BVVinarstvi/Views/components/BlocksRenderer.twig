@@ -88,7 +88,7 @@
               {% endfor %}
             </ul>
           {% elseif block.type == 'buttonLink' %}
-              <a class="btn {% if block.data.placeholderImage %}is-image{% endif %}" href="{{block.data.linkTo}}?q=90&w=1240" title="{{block.data.label}}" {% if block.data.openOnNewTab %} target="_blank" {% endif %} {% if block.data.isDownload %} download {% endif %}>
+              <a class="btn {% if block.data.placeholderImage %}is-image{% endif %}" href="{{block.data.linkTo}}" title="{{block.data.label}}" {% if block.data.openOnNewTab %} target="_blank" {% endif %} {% if block.data.isDownload %} download {% endif %}>
                 {% if block.data.placeholderImage %}
                   <img class="big-image w-100" src="/api/entry-types/files/items/{{ block.data.placeholderImage }}/raw?q=70&w=400" />
                 {% else %}
