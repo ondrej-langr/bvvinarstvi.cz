@@ -5,7 +5,6 @@ import path from 'path'
 
 export default defineConfig(({ command }) => {
   return {
-    publicDir: command === 'build' ? false : path.join(__dirname, 'public'),
     plugins: [
       liveReload('../(modules|public)/**/*.(php|ts|js|css|scss|json|twig)'),
       promCmsVitePlugin(),
