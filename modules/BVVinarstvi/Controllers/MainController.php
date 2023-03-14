@@ -120,4 +120,28 @@ class MainController
 
     return $twig->render($response, '@modules:bVVinarstvi/pages/prodejni-mista/page.twig', array_merge($defaultLayoutData, []));
   }
+
+  function newsletterThanksPage(
+    ServerRequestInterface $request,
+    ResponseInterface $response,
+    array $args
+  ) {
+    $localizedUrlPart = $args["localizedUrlPart"];
+    $twig = $this->container->get(TwigViews::class);
+    $language = $this->getCurrentLanguage($request, $args);
+    $localizedUrlPartsByLanguage = [
+      'cs' => 'dekujeme',
+      'en' => 'thank-you',
+      'de' => 'danke'
+    ];
+
+    if ($localizedUrlPartsByLanguage[$language] !== $localizedUrlPart) {
+      return $response->withStatus(404);
+    }
+
+    $defaultLayoutData = getDefaultLayoutData($language, $this->container);
+
+
+    return $twig->render($response, '@modules:bVVinarstvi/pages/newsletter/dekujeme/page.twig', array_merge($defaultLayoutData, []));
+  }
 }

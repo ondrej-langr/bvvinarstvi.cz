@@ -44,10 +44,21 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <script type="text/javascript">
-      var cpm = {}; (function(h, u, b) { var d =
-      h.getElementsByTagName("script")[0], e = h.createElement("script");
-      e.async = true; e.src = 'https://cookiehub.net/c2/4656845c.js'; e.onload =
-      function() { u.cookiehub.load(b); }; d.parentNode.insertBefore(e, d);
+      var cpm = {
+        language: '{{ __layout.lang }}'
+      }; 
+      
+      (function(h, u, b) { 
+        var d = h.getElementsByTagName("script")[0], 
+        e = h.createElement("script");
+        e.async = true; 
+        e.src = 'https://cookiehub.net/c2/4656845c.js'; 
+        
+        e.onload = function() { 
+          u.cookiehub.load(b); 
+        }; 
+
+        d.parentNode.insertBefore(e, d);
       })(document, window, cpm);
     </script>
   </head>

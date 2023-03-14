@@ -1987,6 +1987,20 @@ ul.menu-content li:hover:after {
     justify-content: center;
 }
 
+.newsletter-thankyou:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    background-image: url('/images/logo/BV_symbol_cs8.svg');
+    opacity: 0.2;
+}
+
 .blog-detail-content .paragraph p.quote:after {
     content: "";
     position: absolute;

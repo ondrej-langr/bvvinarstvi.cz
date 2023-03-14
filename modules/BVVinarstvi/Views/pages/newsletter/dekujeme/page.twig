@@ -1,0 +1,16 @@
+{% set hideFooter = true %}
+{% extends '@modules:bVVinarstvi/layouts/site-layout/site-layout.twig' %}
+
+{% block content %}
+  <div class="blog-header"></div>
+  <div class="content text-center" style="min-height: 50vh">
+    <div class="newsletter-thankyou">
+      <h1 class="display-3 text-white font-weight-bold">{{ "Děkujeme za odběr!"|t }}</h1>
+      <p class="mt-3 display-6">{{ "Nyní jste přihlášeni k našemu newsletteru!"|t }}<p>
+      <div class="d-flex gap-3" style="flex-flow:wrap;justify-content:center;margin-top:4.5rem;position:relative;">
+        <a class="btn" href="{{ ""|frlink }}">{{ "Domů"|t }}</a>
+        <a class="btn" href="{{ "kontakt"|frlink }}">{{ "Kontakt"|t }}</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
