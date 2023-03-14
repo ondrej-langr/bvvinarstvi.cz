@@ -4,10 +4,24 @@
       <h3>
         {{ "Přihlašte se k odběru"|t }}
       </h3>
-      <form method="post"
+      {% set formValuesByLanguage = {
+        'cs': {
+          id: 'aaytv136vh6tunf5bf49c2h28qsb1ifyvpqzoq2s4sk1nc6wz7uxq3z070096qnkhoya8r0yav4jff3ucwkjvz90ouuew08j03m3'
+        },
+        'en': {
+          id: 'ltrla9mpp7v8dh8y7oflqju7ymmgac2k5twci9yeqryk6tni0mn5ltq4bbvkwjpey44b7y6473po4q5u8n3vb77h5uzb0dy474hr'
+        },
+        'de': {
+          id: 'wmur3hapichgyg6qar1s9gid1upgsmojxvesw4rvkn4n15tiqcnrc7yj1q78u5ess9841tl5p7p6vau8vmzaupdmmff4gxmdujc7'
+        },
+      } %}
+      {% set formValueByLanguage = formValuesByLanguage[__layout.lang] %}
+      <form 
+        method="post"
         target="_self"
-        action="https://app.smartemailing.cz/public/web-forms-v2/display-form/341664-aaytv136vh6tunf5bf49c2h28qsb1ifyvpqzoq2s4sk1nc6wz7uxq3z070096qnkhoya8r0yav4jff3ucwkjvz90ouuew08j03m3"
-        id="se20-webform-341664-aaytv136vh6tunf5bf49c2h28qsb1ifyvpqzoq2s4sk1nc6wz7uxq3z070096qnkhoya8r0yav4jff3ucwkjvz90ouuew08j03m3">
+        action="https://app.smartemailing.cz/public/web-forms-v2/display-form/341664-{{ formValueByLanguage.id }}"
+        id="se20-webform-341664-{{ formValueByLanguage.id }}"
+      >
         <p>
         {# Double backslashes for database entries since normalizing makes it with double slashes even though they appear as single backslash #}
           {{ "Chcete mít přehled o nejaktuálnějším dění v B\\V vinařství?"|t }}<br />
@@ -25,15 +39,19 @@
             type="submit"
             name="_submit"
             value="{{ 'Odebírat novinky'|t }}" />
+            
           <input type="hidden" name="referrer" id="se-ref-field-id" value="" />
+
           <input type="hidden"
             name="sessionid"
             id="se-sessionid-field"
             value="" />
+
           <input type="hidden"
             name="sessionUid"
             id="se-sessionUid-field"
             value="" />
+
           <input type="hidden"
             name="_do"
             value="webFormHtmlRenderer-webFormForm-submit" />
