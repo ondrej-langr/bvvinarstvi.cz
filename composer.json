@@ -4,7 +4,7 @@
   "authors": [],
   "require": {
     "twig/intl-extra": "^3.5",
-    "prom-cms/core": "^0.6.1",
+    "prom-cms/core": "^0.6.2",
     "rakit/validation": "^1.4"
   },
   "require-dev": {
